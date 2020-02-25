@@ -8,23 +8,42 @@ body {
 }
 
 .img-wrap {
+  position: relative;
   height: 100vh;
-  width: 100%;
+  overflow: none;
+  z-index: -2;
+}
+
+.img-pos {
+  display: inline-block;
+  position: relative;
+  height: 100vh;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #main-img {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -2;
-  margin: 0;
-  width: auto;
-  max-height: 100%;
+  background-image: url();
+  height: 100%;
+  background-size: cover;
+  background-position: 0% 0%;
+  z-index: 0;
+  /* width: calc(796px * 275px / 1010px); */
+}
+
+#img-sizer {
+  /* position: relative; */
+  /* max-width: 100%; */
+  /* display: none; */
+  filter: blur(5px);
+  z-index: -5;
+  opacity: 0;
 }
 
 .controls {
   position: absolute;
   z-index: 2;
+  overflow: hidden;
 
   top: auto;
   bottom: 0px;
@@ -54,4 +73,54 @@ body {
 .controls > * {
   z-index: 3;
   opacity: 1;
+}
+
+.nav-btn {
+  /* display: inline-block; */
+  float: left;
+
+  margin: 0;
+  padding: 0;
+
+  width: 5%;
+  height: 100%;
+
+  color: white;
+  background: none;
+  border: none;
+}
+
+.nav-progress {
+  float: left;
+  width: 90%;
+  height: 100%;
+  background-color: rebeccapurple;
+}
+
+/*https://www.w3schools.com/howto/howto_css_arrows.asp*/
+i {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: translateX(-50%) rotate(-45deg);
+  -webkit-transform: translateX(-50%) rotate(-45deg);
+}
+
+.left {
+  transform: translateX(50%) rotate(135deg);
+  -webkit-transform: translateX(50%) rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

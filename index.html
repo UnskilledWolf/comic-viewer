@@ -11,12 +11,15 @@
 
 <body>
     <div class="img-wrap">
-        <img alt="commic image" id="main-img">
+        <div class="img-pos">
+            <div id="main-img"></div>
+        </div>
     </div>
 
     <div class="controls">
-        <button>Left</button>
-        <button>Right</button>
+        <button onclick="pageLeft()" class="nav-btn"><i class="arrow left"></i></button>
+        <div class="nav-progress"></div>
+        <button onclick="pageRight()" class="nav-btn"><i class="arrow right"></i></button>
     </div>
 
     <script src="main.js"></script>

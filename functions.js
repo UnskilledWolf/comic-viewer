@@ -12,3 +12,10 @@ function findGetParameter(parameterName)
         });
     return result;
 }
+
+function getMeta(url, callback)
+{
+    var img = new Image();
+    img.onload = () => { callback(img) };
+    img.src = url;
+}
