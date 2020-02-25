@@ -5,6 +5,9 @@ window.onload = () =>
 {
     resizeComic()
     document.getElementById("pageSelector").max = findGetParameter("panels");
+
+    //BG Color
+    document.body.style.backgroundColor = findGetParameter("bgcolor")
 }
 
 window.onresize = () => { resizeComic() }
@@ -44,19 +47,16 @@ document.getElementById("pageSelector").addEventListener("change", (e) =>
     setComicPage(e.target.value)
 })
 
+//Control Hover
 document.getElementById("control-hover").addEventListener("mousemove", (e) =>
 {
-    console.log(`X:${e.clientX} Y:${e.clientY}`)
+    // console.log(`X:${e.clientX} Y:${e.clientY}`)
     if (e.clientY > 87 * document.body.offsetHeight / 100)
         document.getElementById("controls").classList.remove("retracted")
     else
         document.getElementById("controls").classList.add("retracted")
 })
 
-// document.getElementById("control-hover").addEventListener("mouseenter", (e) =>
-// {
-//     document.getElementById("controls").classList.remove("retracted")
-// })
 document.getElementById("control-hover").addEventListener("mouseleave", (e) =>
 {
     document.getElementById("controls").classList.add("retracted")

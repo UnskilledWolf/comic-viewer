@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <noscript>Your browser does not support some necessary features!</noscript>
+    <div id="noscript" style="display: none;">Your browser does not support some necessary features! (Or an error occurred)</div>
+
     <div class="img-wrap">
         <div class="img-pos">
             <div id="main-img"></div>
@@ -29,6 +32,22 @@
     </div>
 
     <script src="main.js"></script>
+    <!-- Check browser compatibility -->
+    <!-- <script>
+        window.onerror = function (e)
+        {
+            console.error("Browser Unsupported")
+            document.getElementById("noscript").style.display = "block";
+        }
+        setTimeout(function ()
+        {
+            if (document.getElementById("main-img").style.backgroundImage = "")
+            {
+                console.error("Browser Unsupported")
+                document.getElementById("noscript").style.display = "block";
+            }
+        }, 5000);
+    </script> -->
 </body>
 
 </html>

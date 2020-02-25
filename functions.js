@@ -1,3 +1,4 @@
+//https://stackoverflow.com/a/5448595
 function findGetParameter(parameterName)
 {
     var result = null,
@@ -13,6 +14,7 @@ function findGetParameter(parameterName)
     return result;
 }
 
+//https://stackoverflow.com/a/11442850
 function getMeta(url, callback)
 {
     var img = new Image();
