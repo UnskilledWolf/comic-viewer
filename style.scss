@@ -13,6 +13,7 @@ button:focus {
   outline: none;
 }
 
+//Image
 .img-wrap {
   position: relative;
   height: 100vh;
@@ -37,32 +38,45 @@ button:focus {
   transition: background-position 0.2s ease-in-out;
 }
 
+//Controls
 #controls {
   position: absolute;
   z-index: 2;
   overflow: hidden;
+
   top: auto;
   bottom: 0px;
+
   height: 10%;
   width: 100%;
+
   backdrop-filter: blur(10px);
+
   transition: transform 0.1s ease-out;
-}
-#controls::after {
-  position: absolute;
-  z-index: -1;
-  top: auto;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  opacity: 0.5;
-  content: "";
-}
-#controls.retracted {
-  transform: translateY(110%);
+
+  //Darken blur
+  &::after {
+    position: absolute;
+    z-index: -1;
+
+    top: auto;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: black;
+    opacity: 0.5;
+    content: "";
+  }
+
+  //The hidden version
+  &.retracted {
+    transform: translateY(110%);
+  }
 }
 
+//Keep the rest of the controls above the darkened blur
 #controls > * {
   z-index: 4;
   opacity: 1;
@@ -71,10 +85,13 @@ button:focus {
 .nav-btn {
   /* display: inline-block; */
   float: left;
+
   margin: 0;
   padding: 0;
+
   width: 5%;
   height: 100%;
+
   color: white;
   background: none;
   border: none;
@@ -85,34 +102,41 @@ button:focus {
   width: 90%;
   height: 100%;
   vertical-align: middle;
-}
-.nav-progress > input {
-  position: relative;
-  margin: 0;
-  width: 99%;
-  height: 5px;
-  left: 50%;
-  top: 10%;
-  transform: translate(-50%, 0);
-  -webkit-appearance: none;
-  appearance: none;
-  background: white;
-  border-radius: 3px;
-}
-.nav-progress > input::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: white;
-  height: 15px;
-  width: 15px;
-  border-radius: 50%;
+
+  & > input {
+    position: relative;
+    margin: 0;
+    width: 99%;
+    height: 5px;
+
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, 0);
+    -webkit-appearance: none;
+    appearance: none;
+
+    background: white;
+
+    border-radius: 3px;
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: white;
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+    }
+  }
 }
 
+//The placeholder so the controls can appear on hover
 #control-hover {
   position: absolute;
   z-index: 3;
   overflow: hidden;
   top: 0;
+
   height: 100%;
   width: 100%;
 }
@@ -123,20 +147,24 @@ i {
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
-}
-i.right {
-  transform: translateX(-50%) rotate(-45deg);
-  -webkit-transform: translateX(-50%) rotate(-45deg);
-}
-i.left {
-  transform: translateX(50%) rotate(135deg);
-  -webkit-transform: translateX(50%) rotate(135deg);
-}
-i.up {
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-}
-i.down {
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+
+  &.right {
+    transform: translateX(-50%) rotate(-45deg);
+    -webkit-transform: translateX(-50%) rotate(-45deg);
+  }
+
+  &.left {
+    transform: translateX(50%) rotate(135deg);
+    -webkit-transform: translateX(50%) rotate(135deg);
+  }
+
+  &.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+
+  &.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
 }

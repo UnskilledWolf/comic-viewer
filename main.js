@@ -1,10 +1,15 @@
 var current = 0;
 const MAIN_IMAGE = document.getElementById("main-img");
 
-window.onload = () => { resizeComic() }
+window.onload = () =>
+{
+    resizeComic()
+    document.getElementById("pageSelector").max = findGetParameter("panels");
+}
 
 window.onresize = () => { resizeComic() }
 
+//Make the width of the correct, so the image does not stretch.
 function resizeComic()
 {
     getMeta(findGetParameter("comic"), (e) =>
@@ -14,10 +19,11 @@ function resizeComic()
     })
 }
 
-
+//Navigation
 function setComicPage(page)
 {
     current = page;
+    document.getElementById("pageSelector").value = current;
     MAIN_IMAGE.style.backgroundPosition = `0% ${100 * page / 7}%`
 }
 
@@ -32,3 +38,26 @@ function pageRight()
     setComicPage(Math.floor(Math.min(findGetParameter("panels"), current + 1)))
     console.log(current)
 }
+
+document.getElementById("pageSelector").addEventListener("change", (e) =>
+{
+    setComicPage(e.target.value)
+})
+
+document.getElementById("control-hover").addEventListener("mousemove", (e) =>
+{
+    console.log(`X:${e.clientX} Y:${e.clientY}`)
+    if (e.clientY > 87 * document.body.offsetHeight / 100)
+        document.getElementById("controls").classList.remove("retracted")
+    else
+        document.getElementById("controls").classList.add("retracted")
+})
+
+// document.getElementById("control-hover").addEventListener("mouseenter", (e) =>
+// {
+//     document.getElementById("controls").classList.remove("retracted")
+// })
+document.getElementById("control-hover").addEventListener("mouseleave", (e) =>
+{
+    document.getElementById("controls").classList.add("retracted")
+})
