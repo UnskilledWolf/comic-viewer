@@ -86,20 +86,25 @@ button:focus {
   height: 100%;
   vertical-align: middle;
 }
-.nav-progress > input {
+.nav-progress > .progress-holder {
+  height: 100%;
+  width: 100%;
+}
+.nav-progress > .progress-holder > input {
+  display: block;
   position: relative;
   margin: 0;
   width: 99%;
   height: 5px;
   left: 50%;
-  top: 10%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
   -webkit-appearance: none;
   appearance: none;
   background: white;
   border-radius: 3px;
 }
-.nav-progress > input::-webkit-slider-thumb {
+.nav-progress > .progress-holder > input::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   background-color: white;

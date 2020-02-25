@@ -103,29 +103,35 @@ button:focus {
   height: 100%;
   vertical-align: middle;
 
-  & > input {
-    position: relative;
-    margin: 0;
-    width: 99%;
-    height: 5px;
+  & > .progress-holder {
+    height: 100%;
+    width: 100%;
 
-    left: 50%;
-    top: 10%;
-    transform: translate(-50%, 0);
-    -webkit-appearance: none;
-    appearance: none;
+    & > input {
+      display: block;
+      position: relative;
+      margin: 0;
+      width: 99%;
+      height: 5px;
 
-    background: white;
-
-    border-radius: 3px;
-
-    &::-webkit-slider-thumb {
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
       -webkit-appearance: none;
       appearance: none;
-      background-color: white;
-      height: 15px;
-      width: 15px;
-      border-radius: 50%;
+
+      background: white;
+
+      border-radius: 3px;
+
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: white;
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+      }
     }
   }
 }
