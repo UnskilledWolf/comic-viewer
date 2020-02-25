@@ -21,3 +21,15 @@ function getMeta(url, callback)
     img.onload = () => { callback(img) };
     img.src = url;
 }
+
+//https://stackoverflow.com/a/326076
+function inIframe()
+{
+    try
+    {
+        return window.self !== window.top;
+    } catch (e)
+    {
+        return true;
+    }
+}

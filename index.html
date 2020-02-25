@@ -49,6 +49,17 @@
             }
         }, 5000);
     </script> -->
+    <!-- Check if it is opened in browser to redirect -->
+    <script>
+        window.onload = () =>
+        {
+            if (!inIframe() && findGetParameter("comic") === null)
+            {
+                console.log("Redirecting to builder")
+                window.location.replace("/builder");
+            }
+        }
+    </script>
 </body>
 
 </html>
