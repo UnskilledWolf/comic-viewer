@@ -21,13 +21,14 @@
 
     <div id="control-hover">
         <div id="controls" class="retracted">
-            <button onclick="pageLeft()" class="nav-btn"><i class="arrow left"></i></button>
-            <div class="nav-progress">
+            <button onclick="pageLeft()" class="nav-btn" style="order: 1"><i class="arrow left"></i></button>
+            <div class="nav-progress" style="order: 2">
                 <div class="progress-holder">
                     <input type="range" min="0" max="9" value="0" id="pageSelector">
                 </div>
             </div>
-            <button onclick="pageRight()" class="nav-btn"><i class="arrow right"></i></button>
+            <button onclick="pageRight()" class="nav-btn" style="order: 3"><i class="arrow right"></i></button>
+            <button onclick="downloadFile()" id="btn-download" class="nav-btn hidden" style="order: 4"><i class="arrow download"></i></button>
         </div>
     </div>
 

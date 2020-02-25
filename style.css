@@ -38,6 +38,10 @@ button:focus {
 }
 
 #controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
   z-index: 2;
   overflow: hidden;
@@ -70,7 +74,6 @@ button:focus {
 
 .nav-btn {
   /* display: inline-block; */
-  float: left;
   margin: 0;
   padding: 0;
   width: 5%;
@@ -82,9 +85,8 @@ button:focus {
 }
 
 .nav-progress {
-  float: left;
-  width: 90%;
   height: 100%;
+  flex-grow: 100;
   vertical-align: middle;
 }
 .nav-progress > .progress-holder {
@@ -125,6 +127,10 @@ button:focus {
   width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 i {
   /*https://www.w3schools.com/howto/howto_css_arrows.asp*/
   border: solid white;
@@ -134,17 +140,62 @@ i {
 }
 i.right {
   transform: translateX(-50%) rotate(-45deg);
-  -webkit-transform: translateX(-50%) rotate(-45deg);
 }
 i.left {
   transform: translateX(50%) rotate(135deg);
-  -webkit-transform: translateX(50%) rotate(135deg);
 }
 i.up {
   transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
 }
 i.down {
   transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+}
+i.download {
+  transform: rotate(45deg);
+}
+i.download::before {
+  display: block;
+  position: absolute;
+  height: 200%;
+  border-left: solid white 3px;
+  transform: rotate(-45deg) translate(calc(50% + 1.5px), -30%);
+  content: "";
+}
+
+.fullscreen {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: translate(3px, 5px);
+}
+.fullscreen::before {
+  display: block;
+  position: absolute;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  content: "";
+  transform: rotate(90deg) translate(-3px, 14px);
+}
+.fullscreen::after {
+  display: block;
+  position: absolute;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  content: "";
+  transform: rotate(180deg) translate(14px, 14px);
+}
+.fullscreen > span {
+  display: block;
+  position: absolute;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  content: "";
+  transform: rotate(270deg) translate(14px, -3px);
 }

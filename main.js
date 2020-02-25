@@ -4,10 +4,16 @@ const MAIN_IMAGE = document.getElementById("main-img");
 window.onload = () =>
 {
     resizeComic()
-    document.getElementById("pageSelector").max = findGetParameter("panels");
+    document.getElementById("pageSelector").max = findGetParameter("panels") - 1;
 
     //BG Color
     document.body.style.backgroundColor = findGetParameter("bgcolor")
+
+    if (findGetParameter("download") === "1")
+        document.getElementById("btn-download").classList.remove("hidden")
+
+    if (findGetParameter("fullscreen") === "1")
+        document.getElementById("btn-full").classList.remove("hidden")
 }
 
 window.onresize = () => { resizeComic() }
@@ -27,7 +33,7 @@ function setComicPage(page)
 {
     current = page;
     document.getElementById("pageSelector").value = current;
-    MAIN_IMAGE.style.backgroundPosition = `0% ${100 * page / 7}%`
+    MAIN_IMAGE.style.backgroundPosition = `0% ${100 * page / (findGetParameter("panels") - 1)}%`
 }
 
 function pageLeft()
@@ -38,7 +44,7 @@ function pageLeft()
 
 function pageRight()
 {
-    setComicPage(Math.floor(Math.min(findGetParameter("panels"), current + 1)))
+    setComicPage(Math.floor(Math.min(findGetParameter("panels") - 1, current + 1)))
     console.log(current)
 }
 
@@ -61,3 +67,10 @@ document.getElementById("control-hover").addEventListener("mouseleave", (e) =>
 {
     document.getElementById("controls").classList.add("retracted")
 })
+
+//Extra
+function downloadFile()
+{
+    alert("Use:\nRight Click > Save as Image")
+    window.open(findGetParameter("comic"), "_self")
+}
