@@ -3,6 +3,13 @@ const MAIN_IMAGE = document.getElementById("main-img");
 
 window.onload = () =>
 {
+    //Check for in iframe
+    if (!inIframe() && findGetParameter("comic") === null)
+    {
+        console.log("Redirecting to builder")
+        window.location.replace("/builder");
+    }
+
     resizeComic()
     document.getElementById("pageSelector").max = findGetParameter("panels") - 1;
 
