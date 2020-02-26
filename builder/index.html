@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comic Viewer Builder</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../functions.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>Comic Viewer Builder</h1>
+        <iframe src="" frameborder="0" id="main-frame" height="500px" width="825px"></iframe>
+
+        <div class="selector-box">
+            <div class="tabs">
+                <button name="builder" class="selected" style="order: 1">Builder</button>
+                <button name="api" style="order: 2">API</button>
+            </div>
+            <div class="content" name="builder">
+                <p>Link to comic: <input type="text" name="link" id="link" placeholder="https://"></p>
+                <p>Amount of panels: <input type="number" name="panels" id="panels" value=1></p>
+                <p>Background color: <input type="color" name="color" id="color" value="#808080"></p>
+                <p>Download button: <input type="checkbox" name="download" id="download"></p>
+                <br>
+                <p>Output: <code><span id="output"></span></code></p>
+            </div>
+            <div class="content hide" name="api">
+                <p>This site's index is able to show a comic and controls with the correct GET parameters. This is meant to be used in an <code>&lt;iframe&gt;</code></p>
+                <table class="api-table">
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>comic</code></td>
+                        <td>Yes</td>
+                        <td>A link to that comic that is to be shown</td>
+                    </tr>
+                    <tr>
+                        <td><code>panels</code></td>
+                        <td>Yes</td>
+                        <td>The amount of panels in the comic <u>All panels need to be the same height and stacked vertically</u></td>
+                    </tr>
+                    <tr>
+                        <td><code>color</code></td>
+                        <td>No</td>
+                        <td>A link to that comic that is to be shown</td>
+                    </tr>
+                    <tr>
+                        <td><code>download</code></td>
+                        <td>No</td>
+                        <td>A link to that comic that is to be shown</td>
+                    </tr>
+                </table>
+                <p>Here is an example: <code>&lt;iframe src="./index.html?comic=http://0.0.0.0:5000/example.png&panels=8&bgcolor=%23003045&download=1" frameborder="0" height="500px" width="825px"&gt;&lt;/iframe&gt;</code></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="./builder_main.js"></script>
+    <script src="./selector-box.js"></script>
+</body>
+
+</html>
