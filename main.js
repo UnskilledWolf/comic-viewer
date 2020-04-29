@@ -7,7 +7,7 @@ window.onload = () =>
     if (!inIframe() && findGetParameter("comic") === null)
     {
         console.log("Redirecting to builder")
-        window.location.replace("/builder");
+        window.location.replace("/comic-viewer/builder");
     }
 
     resizeComic()
